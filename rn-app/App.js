@@ -1,12 +1,26 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, ImageBackground } from 'react-native';
+import { StyleSheet, Text, View, ImageBackground, TextInput, Button, TouchableOpacity, Platform } from 'react-native';
 
 export default function App() {
   return (
     <View style={styles.container}>
       <ImageBackground style={styles.image}
         source={require('./images/mouse.jpg.jpg')}>
-          <Text style={styles.text}>My super app!</Text>
+          <View style={styles.form}>
+            <View>
+              <Text style={styles.text}>Email</Text>
+              <TextInput style={styles.input} textAlign='center'/>
+            </View>
+            <View style={{marginTop: 20}}>
+              <Text style={styles.text}>Password</Text>
+              <TextInput style={styles.input} textAlign='center' secureTextEntry={true}/>
+            </View>
+            <TouchableOpacity style={styles.signInBtn} activeOpacity={0.8}>
+              <Text style={styles.btnText}>
+                SIGN IN
+              </Text>
+            </TouchableOpacity>
+          </View>
       </ImageBackground>
       <StatusBar style="auto" />
     </View>
@@ -23,17 +37,44 @@ const styles = StyleSheet.create({
     flex: 1,
     resizeMode: "cover",
     justifyContent: "center",
-    alignItems: "center",
+    // alignItems: "center",
+  },
+
+  form: {
+    marginHorizontal: 20,
   },
 
   text: {
-    color: "red", 
-    fontSize: 20
+    color: "#fff", 
+    fontSize: 18,
+    marginBottom: 10,
   },
 
   textWrapper: {
     borderWidth: 1,
-    borderColor: "red",
+    borderColor: "#fff",
     padding: 30
   },
+
+  input: {
+    borderWidth: 1,
+    borderColor: '#fff',
+    borderRadius: 5,
+    height: 40,
+    color: '#fff',
+  },
+
+  signInBtn: {
+    backgroundColor: "#2A9AFD",
+    height: 40,
+    borderRadius: 5,
+    marginTop: 40,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+
+  btnText: {
+    color: '#fff',
+    fontSize: 18,
+  }
 });
