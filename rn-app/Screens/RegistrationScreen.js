@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { StyleSheet, Text, View, ImageBackground, TextInput, Button, TouchableOpacity, Platform } from 'react-native';
 
 const initialState = {
+    name: '',
     email: '',
     password: ''
   }
@@ -13,8 +14,16 @@ const RegistrationScreen = () => {
     return (
       <View style={styles.container}>
         <ImageBackground style={styles.image}
-          source={require('./images/mouse.jpg.jpg')}>
+          source={require('../images/mouse.jpg.jpg')}>
             <View style={styles.form}>
+            <View style={{marginTop: 20}}>
+                <Text style={styles.text}>Name</Text>
+                <TextInput 
+                  style={styles.input} 
+                  textAlign='center' 
+                  onChangeText={(value) => setState((prevState) => ({...prevState, password: value}))}
+                  />
+              </View>
               <View>
                 <Text style={styles.text}>Email</Text>
                 <TextInput 
@@ -34,7 +43,7 @@ const RegistrationScreen = () => {
               </View>
               <TouchableOpacity style={styles.signInBtn} activeOpacity={0.8}>
                 <Text style={styles.btnText}>
-                  SIGN IN
+                  SIGN UP
                 </Text>
               </TouchableOpacity>
             </View>

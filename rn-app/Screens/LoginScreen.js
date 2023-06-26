@@ -13,7 +13,7 @@ const LoginScreen = () => {
     return (
       <View style={styles.container}>
         <ImageBackground style={styles.image}
-          source={require('./images/mouse.jpg.jpg')}>
+          source={require('../images/mouse.jpg.jpg')}>
             <View style={styles.form}>
               <View>
                 <Text style={styles.text}>Email</Text>
